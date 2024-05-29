@@ -1,0 +1,27 @@
+.dashboard {
+display: flex;
+flex-direction: column;
+padding: 20px;
+}
+
+.top-cards {
+display: flex;
+justify-content: space-between;
+margin-bottom: 20px;
+}
+
+.charts {
+display: flex;
+justify-content: space-between;
+}
+
+.pie-charts,
+.bar-graphs {
+display: flex;
+flex-direction: column;
+width: 45%;
+}
+
+.upcoming-invoices {
+margin-top: 20px;
+}

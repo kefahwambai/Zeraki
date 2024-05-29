@@ -1,0 +1,10 @@
+.school-details {
+    margin-top: 1rem;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.invoices, .collections {
+margin-top: 1rem;
+}
