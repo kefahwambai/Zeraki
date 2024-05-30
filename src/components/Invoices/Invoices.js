@@ -1,54 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import './invoices.css';
 
-const invoices = [
-  {
-    schoolId: 1,
-    number: 1,
-    item: 'Zeraki Analytics',
-    creationDate: '2024-05-01',
-    dueDate: '2024-06-01',
-    amount: 'Ksh 100000',
-    paidAmount: 'Ksh 50000',
-    balance: 'Ksh 50000',
-    status: 'Pending',
-    daysUntilDue: 3
-  },
-  {
-    schoolId: 2,
-    number: 2,
-    item: 'Zeraki Timetable',
-    creationDate: '2024-05-05',
-    dueDate: '2024-06-05',
-    amount: 'Ksh 70000',
-    paidAmount: 'Ksh 30000',
-    balance: 'Ksh 40000',
-    status: 'Pending',
-    daysUntilDue: 7
-  }
-];
-
 export default function Invoices({ schoolId }) {
-  const filteredInvoices = invoices.filter(invoice => invoice.schoolId === schoolId);
+  const [invoices, setInvoices] = useState([]);
+
+  useEffect(() => {
+    axios.get(`http://localhost:3001/invoices?schoolId=${schoolId}`)
+      .then(response => setInvoices(response.data))
+      .catch(error => console.error('Error fetching invoices:', error));
+  }, [schoolId]);
 
   return (
     <div className="invoices">
       <h3>Invoices</h3>
       <ul>
-        {filteredInvoices.map((invoice, index) => (
+        {invoices.map((invoice, index) => (
           <li key={index}>
-            <p>Invoice Number: {invoice.number}</p>
-            <p>Item: {invoice.item}</p>
-            <p>Creation Date: {invoice.creationDate}</p>
-            <p>Due Date: {invoice.dueDate}</p>
-            <p>Amount: {invoice.amount}</p>
-            <p>Paid Amount: {invoice.paidAmount}</p>
-            <p>Balance: {invoice.balance}</p>
-            <p>Status: {invoice.status}</p>
-            <p>Days Until Due: {invoice.daysUntilDue}</p>
-            <button>Edit</button>
-            <br />
-            <button>Delete</button>
+            <p><span>Invoice Number:</span> {invoice.number}</p>
+            <p><span>Item:</span> {invoice.item}</p>
+            <p><span>Creation Date:</span> {invoice.creationDate}</p>
+            <p><span>Due Date:</span> {invoice.dueDate}</p>
+            <p><span>Amount:</span> {invoice.amount}</p>
+            <p><span>Paid Amount:</span> {invoice.paidAmount}</p>
+            <p><span>Balance:</span> {invoice.balance}</p>
+            <p><span>Status:</span> {invoice.status}</p>
+            <p><span>Days Until Due:</span> {invoice.daysUntilDue}</p>
+            <button className="edit">Edit</button>
+            <button className="delete">Delete</button>
           </li>
         ))}
       </ul>

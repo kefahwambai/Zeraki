@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import './upcominginvoices.css';
 
-const invoices = [
-  { school: 'Blue Horizon Secondary School', amount: 'Ksh 10,000', dueDate: '2024-06-01' },
-  { school: 'Redwood Academy', amount: 'Ksh 50,000', dueDate: '2024-06-05' },
-  
-];
-
 export default function UpcomingInvoices() {
+  const [invoices, setInvoices] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:3001/invoices?_sort=dueDate&_order=asc')
+      .then(response => setInvoices(response.data))
+      .catch(error => console.error('Error fetching upcoming invoices:', error));
+  }, []);
+
   return (
     <div className="upcoming-invoices">
       <h3>Upcoming Invoices</h3>

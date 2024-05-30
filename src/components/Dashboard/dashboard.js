@@ -10,9 +10,9 @@ export default function Dashboard() {
     <div className="dashboard">
       <div className="top-cards">
         <TopCard title="Collections" value="150" />
-        <TopCard title="Sign-ups" value="120" />
-        <TopCard title="Total Revenue" value="Ksh 50,000" />
-        <TopCard title="Bounced Cheques" value="5" />
+        <TopCard title="Sign-ups" value="215" />
+        <TopCard title="Total Revenue" value="Ksh 150,000" />
+        <TopCard title="Bounced Cheques" value="1" />
       </div>
       <div className="charts">
         <div className="pie-charts">

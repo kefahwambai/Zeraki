@@ -1,10 +1,23 @@
+.schools-container {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+padding: 10px;
+}
+
 .school-details {
-    margin-top: 1rem;
-    border: 1px solid #ddd;
-    padding: 1rem;
-    margin-bottom: 1rem;
+flex: 1 1 calc(33.333% - 20px);
+box-sizing: border-box;
+padding: 10px;
+border: 1px solid #ccc;
 }
 
 .invoices, .collections {
-margin-top: 1rem;
+margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+.school-details {
+    flex: 1 1 100%;
+}
 }

@@ -1,5 +1,8 @@
 .collections {
-margin-top: 20px;
+margin-top: 1rem;
+padding: 1rem;
+border: 1px solid #ddd;
+border-radius: 5px;
 }
 
 .collections ul {
@@ -8,21 +11,20 @@ padding: 0;
 }
 
 .collections li {
-display: flex;
-justify-content: space-between;
-padding: 10px;
-border-bottom: 1px solid #ccc;
+margin-bottom: 1rem;
+padding: 1rem;
+border-bottom: 1px solid #eee;
 }
 
-.collections li button {
-padding: 5px 10px;
-background-color: #007bff;
-color: white;
+.collections button {
+margin-right: 0.5rem;
+padding: 0.5rem 1rem;
 border: none;
+border-radius: 3px;
 cursor: pointer;
 }
 
-.collections li button:hover {
-background-color: #0056b3;
+.collections button:hover {
+background-color: #f0f0f0;
 }
-  
+    
