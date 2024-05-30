@@ -21,12 +21,14 @@ export default function Dashboard() {
           <PieChart title="Zeraki Timetable" target={100} achieved={90} />
         </div>
         <div className="bar-graphs">
-          <BarGraph title="Zeraki Analytics" data={{ primary: 40, secondary: 30, igcse: 5 }} />
-          <BarGraph title="Zeraki Finance" data={{ primary: 20, secondary: 25, igcse: 5 }} />
-          <BarGraph title="Zeraki Timetable" data={{ primary: 60, secondary: 20, igcse: 10 }} />
+          <BarGraph title="Zeraki Analytics" data={{ primary: 40, secondary: 30, igcse: 5 }} colors={['#8884d8', '#82ca9d', '#ffc658']} />
+          <BarGraph title="Zeraki Finance" data={{ primary: 20, secondary: 25, igcse: 5 }} colors={['#8dd1e1', '#83a6ed', '#8e4585']} />
+          <BarGraph title="Zeraki Timetable" data={{ primary: 60, secondary: 20, igcse: 10 }} colors={['#ff7300', '#387908', '#ffbb28']} />
         </div>
       </div>
-      <UpcomingInvoices />
+      <div className="upcoming-invoices">
+        <UpcomingInvoices />
+      </div>
     </div>
   );
 }

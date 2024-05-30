@@ -2,6 +2,8 @@
 display: flex;
 flex-direction: column;
 padding: 20px;
+background-color: #f9f9f9;
+font-family: 'Arial, sans-serif';
 }
 
 .top-cards {
@@ -10,18 +12,43 @@ justify-content: space-between;
 margin-bottom: 20px;
 }
 
+.top-cards > div {
+flex: 1;
+margin-right: 20px;
+}
+
+.top-cards > div:last-child {
+margin-right: 0;
+}
+
 .charts {
 display: flex;
 justify-content: space-between;
+margin-top: 20px;
 }
 
 .pie-charts,
 .bar-graphs {
 display: flex;
 flex-direction: column;
-width: 45%;
+width: 48%;
+background-color: #fff;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pie-charts > div,
+.bar-graphs > div {
+margin-bottom: 20px;
+}
+
+.pie-charts > div:last-child,
+.bar-graphs > div:last-child {
+margin-bottom: 0;
 }
 
 .upcoming-invoices {
 margin-top: 20px;
 }
+  
