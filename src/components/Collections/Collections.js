@@ -21,8 +21,8 @@ export default function Collections({ schoolId }) {
     <div className="collections">
       <h3>Collections</h3>
       <ul>
-        {collections.map((collection, index) => (
-          <li key={index}>
+        {collections.map((collection) => (
+          <li key={collection.id}>
             <p>Invoice Number: {collection.invoiceNumber}</p>
             <p>Collection Number: {collection.collectionNumber}</p>
             <p>Date: {collection.date}</p>

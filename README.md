@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+Zeraki School Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Project Overview
 
-## Available Scripts
+The Zeraki School Management System is a comprehensive web application designed to help schools efficiently manage their finances, timetables, and analytics. With a user-friendly interface, it simplifies tasks such as managing school details, handling invoices, and tracking collections.
 
-In the project directory, you can run:
+Key Features
 
-### `npm start`
+    School Management: View and manage details of various schools, including contact information, registration dates, and financial balances.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    Invoices: Track invoices, monitor amounts, due dates, and statuses effortlessly.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    Collections: Streamline collection management, validate statuses, and manage collection amounts efficiently.
 
-### `npm test`
+    Data Visualization: Utilize custom charts to visualize school performance and financial data effectively.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Key Design Decisions
 
-### `npm run build`
+    Component-Based Architecture: Built using React, leveraging its component-based architecture for scalability and maintainability.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    State Management: Utilizes React's state management to maintain a clear data flow and ensure component decoupling.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    Styling: CSS modules are used for encapsulating styles within components, promoting maintainability and preventing style leakage.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Setup Instructions
 
-### `npm run eject`
+Prerequisites
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    Node.js (version 14.x or later)
+    npm (version 6.x or later) or yarn (version 1.x or later)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    Clone the Repository:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    git clone https://github.com/yourusername/zeraki.git
+    cd zeraki
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Install Dependencies:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Using npm:
 
-### Code Splitting
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Or using yarn:
 
-### Analyzing the Bundle Size
+yarn install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Start the Development Server:
 
-### Making a Progressive Web App
+Using npm:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+npm start
 
-### Advanced Configuration
+Or using yarn:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+yarn start
 
-### Deployment
+This will start the development server and open the application in your default web browser at http://localhost:3000.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Contributing
 
-### `npm run build` fails to minify
+Contributions are welcome! If you'd like to contribute, please feel free to submit a Pull Request.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+License
+
+This project is licensed under the MIT License. See the LICENSE file for more information.
