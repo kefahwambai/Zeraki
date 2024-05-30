@@ -8,7 +8,7 @@ export default function SchoolDetails() {
   const [schools, setSchools] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/schools')
+    axios.get('https://zerakidb.vercel.app/schools')
       .then(response => setSchools(response.data))
       .catch(error => console.error('Error fetching schools:', error));
   }, []);

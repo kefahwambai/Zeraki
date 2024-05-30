@@ -6,13 +6,13 @@ export default function Collections({ schoolId }) {
   const [collections, setCollections] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/collections?schoolId=${schoolId}`)
+    axios.get(`https://zerakidb.vercel.app/collections?schoolId=${schoolId}`)
       .then(response => setCollections(response.data))
       .catch(error => console.error('Error fetching collections:', error));
   }, [schoolId]);
 
   const handleStatusChange = (collectionId, newStatus) => {
-    axios.patch(`http://localhost:3001/collections/${collectionId}`, { status: newStatus })
+    axios.patch(`https://zerakidb.vercel.app/collections/${collectionId}`, { status: newStatus })
       .then(response => setCollections(collections.map(col => col.id === collectionId ? response.data : col)))
       .catch(error => console.error('Error updating collection status:', error));
   };

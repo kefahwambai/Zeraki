@@ -6,7 +6,7 @@ export default function Invoices({ schoolId }) {
   const [invoices, setInvoices] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/invoices?schoolId=${schoolId}`)
+    axios.get(`https://zerakidb.vercel.app/invoices?schoolId=${schoolId}`)
       .then(response => setInvoices(response.data))
       .catch(error => console.error('Error fetching invoices:', error));
   }, [schoolId]);
