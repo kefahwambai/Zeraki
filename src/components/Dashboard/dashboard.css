@@ -4,13 +4,13 @@ flex-direction: column;
 padding: 20px;
 font-family: 'Arial, sans-serif';
 width: 75vw;
-margin-left: 2.4rem;
 max-width: 1200px;
 }
 
 .top-cards {
 display: flex;
 justify-content: space-between;
+margin-top: 3rem;
 margin-bottom: 20px;
 }
 
@@ -54,4 +54,5 @@ margin-bottom: 0;
 
 .upcoming-invoices {
 margin-top: 20px;
+margin-left: 2.4rem;
 }

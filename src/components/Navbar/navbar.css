@@ -1,0 +1,50 @@
+.navbar {
+display: flex;
+position: fixed !important;
+margin-top: -2.5rem;
+width: 78vw;
+justify-content: space-between;
+align-items: center;
+padding: 10px 20px;
+background-color: #333;
+color: white;
+font-family: 'Arial, sans-serif';
+z-index:10;
+}
+
+.navbar-brand {
+font-size: 1.5rem;
+font-weight: bold;
+}
+
+.navbar-items {
+display: flex;
+align-items: center;
+gap: 60px;
+}
+
+.navbar-item {
+cursor: pointer;
+position: relative; 
+display: flex;
+align-items: center;
+transition: color 0.3s ease;
+}
+
+.navbar-item i {
+font-size: 1.2rem;
+}
+
+.navbar-item:hover {
+color: #ddd;
+}
+.notification-dot {
+position: absolute;
+top: -5px;
+right: -5px;
+width: 10px;
+height: 10px;
+background-color: orange;
+border-radius: 50%;
+border: 2px solid white;
+}

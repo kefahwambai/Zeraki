@@ -2,10 +2,13 @@
 display: flex;
 flex-wrap: wrap;
 gap: 20px;
+width: 73vw;
 padding: 10px;
+margin-left: 2.4rem;
 }
 
 .school-details {
+margin-top: 3rem;
 flex: 1 1 calc(33.333% - 20px);
 box-sizing: border-box;
 padding: 10px;

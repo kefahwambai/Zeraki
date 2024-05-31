@@ -4,10 +4,12 @@ import PieChart from '../PieChart/PieChart';
 import BarGraph from '../BarGraph/BarGraph';
 import UpcomingInvoices from '../UpcomingInvoices/UpcomingInvoices';
 import './dashboard.css';
+import Navbar from '../Navbar/navbar';
 
 export default function Dashboard() {
   return (
     <div className="dashboard">
+      <Navbar/>
       <div className="top-cards">
         <TopCard title="Collections" value="150" />
         <TopCard title="Sign-ups" value="215" />
