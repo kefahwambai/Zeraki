@@ -25,4 +25,10 @@ color: #fff;
 text-decoration: none;
 display: block;
 }
+ 
+.sidebar nav ul li a:hover {
+color: #54d4f7; 
+cursor: pointer; 
+transition: background-color 0.3s ease, color 0.3s ease; 
+}
   
