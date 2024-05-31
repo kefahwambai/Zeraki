@@ -1,12 +1,11 @@
-  .dashboard {
+.dashboard {
 display: flex;
 flex-direction: column;
 padding: 20px;
-background-color: #f9f9f9;
 font-family: 'Arial, sans-serif';
-width: 100vw;
+width: 75vw;
+margin-left: 2.4rem;
 max-width: 1200px;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .top-cards {
