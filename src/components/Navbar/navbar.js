@@ -11,9 +11,6 @@ export default function Navbar() {
           <span className="notification-dot"></span>
         </div>
         <div className="navbar-item">
-          <i className="fas fa-cog"></i>
-        </div>
-        <div className="navbar-item">
           <i className="fas fa-user"></i>
         </div>
       </div>
