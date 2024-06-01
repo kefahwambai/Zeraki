@@ -156,14 +156,15 @@ transition: background-color 0.3s, transform 0.3s;
 }
 
 .new-invoice-toggle button:hover {
-background-color: #0056b3; 
+background-color: rgb(172, 172, 172); 
+color: white;
 transform: scale(1.05); 
 }
-
+/* 
 .new-invoice-toggle button:focus {
 outline: none; 
 box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); 
-}
+} */
 
 .new-invoice-toggle button:active {
 transform: scale(0.98); 
