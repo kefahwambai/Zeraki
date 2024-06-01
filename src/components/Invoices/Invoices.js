@@ -128,7 +128,7 @@ export default function Invoices({ schoolId }) {
       </div>
       <div className="new-invoice-toggle">
         <button onClick={() => setShowCreateForm(!showCreateForm)}>
-          {showCreateForm ? 'Close Create Invoice' : 'Create New Invoice'}
+          {showCreateForm ? 'Close' : 'Create New Invoice'}
         </button>
       </div>
       {showCreateForm && (
