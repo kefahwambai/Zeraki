@@ -9,6 +9,8 @@ position: fixed;
 
 .sidebar h2 {
 text-align: center;
+font-size: 3rem;
+margin-bottom: -2rem;
 text-decoration: none !important;
 color: #fff !important;
 }

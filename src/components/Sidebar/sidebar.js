@@ -4,7 +4,7 @@ import './sidebar.css';
 export default function Sidebar() {
   return (
     <div className="sidebar">
-      <h2>Zeraki Dashboard</h2>
+      <h2>Zeraki</h2>
       <nav style={{ marginTop: '5rem' }}>
         <h3>MENU</h3>
         <ul style={{ marginLeft: '2rem' }}>
