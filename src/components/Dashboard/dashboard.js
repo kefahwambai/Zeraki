@@ -5,6 +5,7 @@ import BarGraph from '../BarGraph/BarGraph';
 import UpcomingInvoices from '../UpcomingInvoices/UpcomingInvoices';
 import './dashboard.css';
 import Navbar from '../Navbar/navbar';
+import Footer from '../Footer/footer';
 
 export default function Dashboard() {
   return (

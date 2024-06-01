@@ -4,9 +4,11 @@ import Sidebar from './components/Sidebar/sidebar';
 import Home from './pages/Home';
 import SchoolManagement from './pages/SchoolManagement';
 import './App.css';
+import Footer from './components/Footer/footer';
 
 function App() {
   return (
+    <>
     <Router>
       <div className="App">
         <Sidebar />
@@ -15,9 +17,12 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/schools" element={<SchoolManagement />} />
           </Routes>
-        </div>
+        </div>        
       </div>
     </Router>
+    <Footer/>
+    </>
+    
   );
 }
 

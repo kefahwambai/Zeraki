@@ -98,10 +98,25 @@ export default function Invoices({ schoolId }) {
 
   const handleCollectionChange = (e) => {
     const { name, value } = e.target;
-    setCollection(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
+    if (name === 'amount') {
+      const numericValue = parseFloat(value);
+      if (!isNaN(numericValue) && numericValue >= 0) {
+        setCollection(prevState => ({
+          ...prevState,
+          [name]: value
+        }));
+      } else if (value === '') {
+        setCollection(prevState => ({
+          ...prevState,
+          [name]: value
+        }));
+      }
+    } else {
+      setCollection(prevState => ({
+        ...prevState,
+        [name]: value
+      }));
+    }
   };
 
   const handleAddCollection = (id) => {
@@ -180,7 +195,14 @@ export default function Invoices({ schoolId }) {
                 <button className="edit" onClick={() => handleEdit(invoice)}>Edit</button>
                 <button className="delete" onClick={() => handleDelete(invoice.id)}>Delete</button>
                 <div className="add-collection">
-                  <input type="number" name="amount" placeholder="Collection Amount" value={collection.amount} onChange={handleCollectionChange} />
+                  <input
+                    type="number"
+                    name="amount"
+                    placeholder="Collection Amount"
+                    value={collection.amount}
+                    onChange={handleCollectionChange}
+                    min="0"
+                  />
                   <select name="status" value={collection.status} onChange={handleCollectionChange}>
                     <option value="partial">Partial</option>
                     <option value="full">Full</option>
