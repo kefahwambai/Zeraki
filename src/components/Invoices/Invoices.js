@@ -5,15 +5,40 @@ import './invoices.css';
 export default function Invoices({ schoolId }) {
   const [invoices, setInvoices] = useState([]);
   const [editingInvoice, setEditingInvoice] = useState(null);
+  const [filter, setFilter] = useState('all');
+  const [showCreateForm, setShowCreateForm] = useState(false);
+  const [newInvoice, setNewInvoice] = useState({
+    item: '',
+    creationDate: '',
+    dueDate: '',
+    amount: '',
+    paidAmount: '',
+    balance: '',
+    status: '',
+  });
+  const [collection, setCollection] = useState({ amount: '', status: 'partial' });
 
   useEffect(() => {
     fetchInvoices();
-  }, [schoolId]);
+  }, [schoolId, filter]);
 
   const fetchInvoices = () => {
     axios.get(`https://zerakidb.vercel.app/invoices?schoolId=${schoolId}`)
-      .then(response => setInvoices(response.data))
+      .then(response => {
+        const filteredInvoices = filterInvoices(response.data);
+        setInvoices(filteredInvoices);
+      })
       .catch(error => console.error('Error fetching invoices:', error));
+  };
+
+  const filterInvoices = (invoices) => {
+    if (filter === 'completed') {
+      return invoices.filter(invoice => invoice.status === 'completed');
+    }
+    if (filter === 'pending') {
+      return invoices.filter(invoice => invoice.status === 'pending');
+    }
+    return invoices;
   };
 
   const handleDelete = (id) => {
@@ -43,9 +68,82 @@ export default function Invoices({ schoolId }) {
     }));
   };
 
+  const handleNewInvoiceChange = (e) => {
+    const { name, value } = e.target;
+    setNewInvoice(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleCreateInvoice = () => {
+    const invoiceNumber = `INV-${Date.now()}`;
+    const invoice = { ...newInvoice, number: invoiceNumber, schoolId };
+    axios.post('https://zerakidb.vercel.app/invoices', invoice)
+      .then(() => {
+        setNewInvoice({
+          item: '',
+          creationDate: '',
+          dueDate: '',
+          amount: '',
+          paidAmount: '',
+          balance: '',
+          status: '',
+        });
+        setShowCreateForm(false); 
+        fetchInvoices();
+      })
+      .catch(error => console.error('Error creating invoice:', error));
+  };
+
+  const handleCollectionChange = (e) => {
+    const { name, value } = e.target;
+    setCollection(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleAddCollection = (id) => {
+    const invoice = invoices.find(invoice => invoice.id === id);
+    const updatedPaidAmount = parseFloat(invoice.paidAmount) + parseFloat(collection.amount);
+    const updatedBalance = parseFloat(invoice.amount) - updatedPaidAmount;
+    const updatedStatus = updatedBalance <= 0 ? 'completed' : collection.status === 'bounced' ? 'pending' : 'pending';
+    const updatedInvoice = { ...invoice, paidAmount: updatedPaidAmount, balance: updatedBalance, status: updatedStatus };
+    axios.put(`https://zerakidb.vercel.app/invoices/${id}`, updatedInvoice)
+      .then(() => {
+        setCollection({ amount: '', status: 'partial' });
+        fetchInvoices();
+      })
+      .catch(error => console.error('Error updating invoice:', error));
+  };
+
   return (
     <div className="invoices">
       <h3>Invoices</h3>
+      <div className="filters">
+        <button onClick={() => setFilter('all')}>All</button>
+        <button onClick={() => setFilter('completed')}>Completed</button>
+        <button onClick={() => setFilter('pending')}>Pending</button>
+      </div>
+      <div className="new-invoice-toggle">
+        <button onClick={() => setShowCreateForm(!showCreateForm)}>
+          {showCreateForm ? 'Close Create Invoice' : 'Create New Invoice'}
+        </button>
+      </div>
+      {showCreateForm && (
+        <div className="new-invoice">
+          <h4>Create New Invoice</h4>
+          <input name="item" value={newInvoice.item} onChange={handleNewInvoiceChange} placeholder="Item" />
+          <input name="creationDate" value={newInvoice.creationDate} onChange={handleNewInvoiceChange} placeholder="Creation Date" />
+          <input name="dueDate" value={newInvoice.dueDate} onChange={handleNewInvoiceChange} placeholder="Due Date" />
+          <input name="amount" value={newInvoice.amount} onChange={handleNewInvoiceChange} placeholder="Amount" />
+          <input name="paidAmount" value={newInvoice.paidAmount} onChange={handleNewInvoiceChange} placeholder="Paid Amount" />
+          <input name="balance" value={newInvoice.balance} onChange={handleNewInvoiceChange} placeholder="Balance" />
+          <input name="status" value={newInvoice.status} onChange={handleNewInvoiceChange} placeholder="Status" />
+          <button onClick={handleCreateInvoice}>Create Invoice</button>
+        </div>
+      )}
       <ul>
         {invoices.map((invoice) => (
           <li key={invoice.id}>
@@ -76,6 +174,15 @@ export default function Invoices({ schoolId }) {
                 <p><span>Days Until Due:</span> {invoice.daysUntilDue}</p>
                 <button className="edit" onClick={() => handleEdit(invoice)}>Edit</button>
                 <button className="delete" onClick={() => handleDelete(invoice.id)}>Delete</button>
+                <div className="add-collection">
+                  <input type="number" name="amount" placeholder="Collection Amount" value={collection.amount} onChange={handleCollectionChange} />
+                  <select name="status" value={collection.status} onChange={handleCollectionChange}>
+                    <option value="partial">Partial</option>
+                    <option value="full">Full</option>
+                    <option value="bounced">Bounced</option>
+                  </select>
+                  <button onClick={() => handleAddCollection(invoice.id)}>Add Collection</button>
+                </div>
               </div>
             )}
           </li>

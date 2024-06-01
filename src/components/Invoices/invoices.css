@@ -1,19 +1,62 @@
 .invoices {
-font-family: Arial, sans-serif;
-max-width: 800px;
-margin: 0 auto;
 padding: 20px;
-border: 1px solid #ddd;
-border-radius: 8px;
-background-color: #f9f9f9;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.invoices h3 {
-text-align: center;
-color: #333;
-font-size: 24px;
+.filters {
 margin-bottom: 20px;
+}
+
+.filters button {
+margin-right: 10px;
+padding: 10px 20px;
+background-color: #007bff;
+color: #fff;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.filters button:hover {
+background-color: #0056b3;
+}
+
+.new-invoice {
+background-color: #fff;
+padding: 20px;
+border-radius: 10px;
+margin-bottom: 20px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.new-invoice input {
+width: calc(100% - 40px);
+margin: 10px 0;
+padding: 10px;
+border: 1px solid #ddd;
+border-radius: 5px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+.new-invoice button {
+margin-top: 10px;
+padding: 10px 20px;
+width: calc(100% - 40px);
+border: none;
+border-radius: 5px;
+cursor: pointer;
+display: block;
+margin-left: auto;
+margin-right: auto;
+background-color: #28a745;
+color: #fff;
+transition: background-color 0.3s ease;
+}
+
+.new-invoice button:hover {
+background-color: #218838;
 }
 
 .invoices ul {
@@ -22,59 +65,106 @@ padding: 0;
 }
 
 .invoices li {
-background: #fff;
-margin: 10px 0;
-padding: 20px;
+background-color: #fff;
 border: 1px solid #ddd;
 border-radius: 8px;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-transition: box-shadow 0.3s ease, transform 0.3s ease;
+padding: 15px;
+margin-bottom: 15px;
+display: flex;
+flex-direction: column;
+transition: box-shadow 0.3s ease;
 }
 
 .invoices li:hover {
-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-transform: translateY(-2px);
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.invoices li p {
-margin: 10px 0;
+.invoices p {
+margin: 5px 0;
 color: #555;
-font-size: 16px;
 }
 
-.invoices li p span {
-font-weight: bold;
-color: #000;
+.invoices p span {
+font-weight: 600;
+color: #333;
 }
 
-.invoices li button {
-padding: 10px 15px;
-margin: 5px;
+.invoices .edit,
+.invoices .delete {
+padding: 10px 20px;
+margin-top: 10px;
+border: none;
+margin-right: 1rem;
+border-radius: 5px;
+cursor: pointer;
+color: #fff;
+}
+
+.invoices .edit {
+background-color: #007bff;
+}
+
+.invoices .edit:hover {
+background-color: #0056b3;
+}
+
+.invoices .delete {
+background-color: #dc3545;
+}
+
+.invoices .delete:hover {
+background-color: #c82333;
+}
+
+.add-collection {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.add-collection input,
+.add-collection select {
+width: 60%;
+padding: 10px;
+margin-right: 1rem;
+margin-top: 10px;
+border: 1px solid #ddd;
+border-radius: 5px;
+}
+
+.add-collection button {
+padding: 10px 20px;
+margin-top: 10px;
 border: none;
 border-radius: 5px;
 cursor: pointer;
+background-color: #28a745;
+color: #fff;
 transition: background-color 0.3s ease;
-font-size: 14px;
 }
 
-.invoices li button:hover {
-background-color: #ddd;
+.add-collection button:hover {
+background-color: #218838;
+}
+.new-invoice-toggle button {
+color: #000000;
+border: none; 
+padding: 5px 10px; 
+font-size: 13px; 
+border-radius: 5px; 
+transition: background-color 0.3s, transform 0.3s; 
 }
 
-.invoices li button.edit {
-background-color: #4CAF50;
-color: white;
+.new-invoice-toggle button:hover {
+background-color: #0056b3; 
+transform: scale(1.05); 
 }
 
-.invoices li button.edit:hover {
-background-color: #45a049;
+.new-invoice-toggle button:focus {
+outline: none; 
+box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); 
 }
 
-.invoices li button.delete {
-background-color: #f44336;
-color: white;
-}
-
-.invoices li button.delete:hover {
-background-color: #e53935;
+.new-invoice-toggle button:active {
+transform: scale(0.98); 
 }
