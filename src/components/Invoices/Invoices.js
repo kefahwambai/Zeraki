@@ -135,7 +135,7 @@ export default function Invoices({ schoolId }) {
         <div className="new-invoice">
           <h4>Create New Invoice</h4>
           <select name="item" value={newInvoice.item} onChange={handleNewInvoiceChange}>
-            <option value="">Select Item</option>
+            <option value="">- select item -</option>
             <option value="Zeraki Timetable">Zeraki Timetable</option>
             <option value="Zeraki Finance">Zeraki Finance</option>
             <option value="Zeraki Analytics">Zeraki Analytics</option>
