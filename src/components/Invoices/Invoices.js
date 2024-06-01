@@ -134,7 +134,12 @@ export default function Invoices({ schoolId }) {
       {showCreateForm && (
         <div className="new-invoice">
           <h4>Create New Invoice</h4>
-          <input name="item" value={newInvoice.item} onChange={handleNewInvoiceChange} placeholder="Item" />
+          <select name="item" value={newInvoice.item} onChange={handleNewInvoiceChange}>
+            <option value="">Select Item</option>
+            <option value="Zeraki Timetable">Zeraki Timetable</option>
+            <option value="Zeraki Finance">Zeraki Finance</option>
+            <option value="Zeraki Analytics">Zeraki Analytics</option>
+          </select>
           <input name="creationDate" value={newInvoice.creationDate} onChange={handleNewInvoiceChange} placeholder="Creation Date" />
           <input name="dueDate" value={newInvoice.dueDate} onChange={handleNewInvoiceChange} placeholder="Due Date" />
           <input name="amount" value={newInvoice.amount} onChange={handleNewInvoiceChange} placeholder="Amount" />
